@@ -20,45 +20,53 @@ export function DesignForm() {
     svm: "0",
     targetedProductivity: "0",
   });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
   };
-  console.log(formData)
+  const handleChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  console.log(formData);
   const navigate = useNavigate();
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  //   navigate("/project-1/speedometer");
-  // };
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    try {
-      const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) {
-        throw new Error("Unauthorized");
-      }
-
-      const responseData = await res.json();
-      navigate("/project-1/speedometer", { state: { data: responseData } });
-      console.log("success");
-    } catch (error) {
-      console.error(error);
-      // Handle error properly, such as showing a message to the user
-    }
+    console.log(formData);
+    navigate("/project-1/speedometer");
   };
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     if (!res.ok) {
+  //       throw new Error("Unauthorized");
+  //     }
+
+  //     const responseData = await res.json();
+  //     navigate("/project-1/speedometer", { state: { data: responseData } });
+  //     console.log("success");
+  //   } catch (error) {
+  //     console.error(error);
+  //     // Handle error properly, such as showing a message to the user
+  //   }
+  // };
 
   return (
     <div className="max-w-md w-full mx-auto rounded-none mb-[90px] md:rounded-2xl p-2  md:p-5 shadow-input bg-white dark:bg-black">
@@ -75,7 +83,7 @@ export function DesignForm() {
               id="teamNumber"
               name="teamNumber"
               className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               value={formData.teamNumber}
             >
               {[...Array(12).keys()].map((num) => (
@@ -96,7 +104,7 @@ export function DesignForm() {
               id="day"
               name="day"
               className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               value={formData.day}
             >
               {[
@@ -140,7 +148,7 @@ export function DesignForm() {
             name="numberOfWorkers"
             placeholder="Number of Workers"
             type="number"
-            onChange={handleChange}
+            onChange={(e) => handleChange1(e)}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -150,7 +158,7 @@ export function DesignForm() {
             name="overtime"
             placeholder="Overtime"
             type="number"
-            onChange={handleChange}
+            onChange={(e) => handleChange1(e)}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -160,7 +168,7 @@ export function DesignForm() {
             name="incentive"
             placeholder="Incentive"
             type="number"
-            onChange={handleChange}
+            onChange={(e) => handleChange1(e)}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -170,7 +178,7 @@ export function DesignForm() {
             name="svm"
             placeholder="SVM"
             type="number"
-            onChange={handleChange}
+            onChange={(e) => handleChange1(e)}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -180,7 +188,7 @@ export function DesignForm() {
             name="targetedProductivity"
             placeholder="Targeted Productivity"
             type="number"
-            onChange={handleChange}
+            onChange={(e) => handleChange1(e)}
           />
         </LabelInputContainer>
 

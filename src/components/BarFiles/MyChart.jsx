@@ -10,34 +10,42 @@ class MyChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        { name: "Team-1", value: 0.1 },
-        { name: "Team-2", value: 0.2 },
-        { name: "Team-3", value: 0.3 },
-        { name: "Team-4", value: 0.4 },
-        { name: "Team-5", value: 0.5 },
-        { name: "Team-6", value: 0.6 },
-        { name: "Team-7", value: 0.7 },
-        { name: "Team-8", value: 0.8 },
-        { name: "Team-9", value: 0.9 },
-        { name: "Team-10", value: 0.45 },
-        { name: "Team-11", value: 0.93 },
-        { name: "Team-12", value: 0.5 },
-      ],
+      data: null, // Initially set data to null
+      loading: true, // Set loading state to true
     };
   }
 
-  // randomizeData = (e) => {
-  //   e.preventDefault();
-  //   const data = this.state.data.map((obj) => ({
-  //     name: obj.name,
-  //     value: Math.floor(Math.random() * 500 + 1),
-  //   }));
-  //   this.setState({ data });
-  // };
+  componentDidMount() {
+    // Simulate data fetching delay
+    setTimeout(() => {
+      // Once data is fetched, update the state
+      this.setState({
+        data: [
+          { name: "Team-1", value: 0.1 },
+          { name: "Team-2", value: 0.2 },
+          { name: "Team-3", value: 0.3 },
+          { name: "Team-4", value: 0.4 },
+          { name: "Team-5", value: 0.5 },
+          { name: "Team-6", value: 0.6 },
+          { name: "Team-7", value: 0.7 },
+          { name: "Team-8", value: 0.8 },
+          { name: "Team-9", value: 0.9 },
+          { name: "Team-10", value: 0.45 },
+          { name: "Team-11", value: 0.93 },
+          { name: "Team-12", value: 0.5 },
+        ],
+        loading: false, // Update loading state to false
+      });
+    }, 1000); // Adjust the delay time as per your requirement
+  }
 
   render() {
-    const { data } = this.state;
+    const { data, loading } = this.state;
+
+    if (loading) {
+      return <div>Loading...</div>; // Render loading message while data is being fetched
+    }
+
     const parentWidth = 700;
     const margin = {
       top: 10,
@@ -63,7 +71,6 @@ class MyChart extends Component {
 
     return (
       <div>
-        {/* <button onClick={this.randomizeData}>Randomize data</button> */}
         <svg
           width={width + margin.left + margin.right}
           height={height + margin.top + margin.bottom}
