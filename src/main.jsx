@@ -20,12 +20,6 @@ const router = createBrowserRouter([
       {
         path: "/project-1",
         element: <Project1 />,
-        // children: [
-        //   {
-        //     path: "/project-1/speedometer",
-        //     element: <Speedometer />,
-        //   },
-        // ],
       },
       {
         path: "/project-2",

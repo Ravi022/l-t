@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import DarkMode from "../DarkMode/DarkMode.jsx";
 export default function Navigation() {
   return (
     <div>
@@ -17,9 +16,9 @@ export default function Navigation() {
               </Link>
             </li>
           </div>
-          <div className="  flex p-2 p-3 text-custom-blue">
+          <div className="  flex p-3 text-custom-blue">
             <li className="p-3 m-3 font-raleway font-sans">
-              <NavLink to="/" className=" ease-in ">
+              <NavLink to="/" className=" ease-in hover:underline ">
                 Home
               </NavLink>
             </li>
@@ -33,7 +32,7 @@ export default function Navigation() {
                 Project 2
               </NavLink>
             </li>
-            <li className="p-3 m-3 font-raleway font-sans">
+            <li className="p-3 m-3 font-raleway font-sans ">
               <NavLink to="/faq" className="hover:underline ">
                 FAQ
               </NavLink>
