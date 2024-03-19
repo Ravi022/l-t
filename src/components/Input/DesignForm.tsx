@@ -28,32 +28,66 @@ const textVariants = {
 
 export function DesignForm() {
   const [formData, setFormData] = useState({
-    teamNumber: "1",
-    day: "Monday",
-    department: "Brickwork",
+    teamNumber: "",
+    day: "",
+    department: "",
     numberOfWorkers: "0",
     overtime: "0",
     incentive: "0",
     svm: "0",
     targetedProductivity: "0",
   });
+  // const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const { name, value } = e.target;
+  //   let updatedValue: string | number | number[] = value; // Default to value directly
+  //   if (name === "day") {
+  //     const days = [
+  //       "Monday",
+  //       "Tuesday",
+  //       "Wednesday",
+  //       "Thursday",
+  //       "Friday",
+  //       "Saturday",
+  //       "Sunday",
+  //     ];
+  //     updatedValue = days.map((day) => (day === value ? 1 : 0));
+  //   } else if (name === "department") {
+  //     updatedValue = value === "Brickwork" ? 0 : 1;
+  //   }
+  //   setFormData({
+  //     ...formData,
+  //     [name]: updatedValue,
+  //   });
+  // };
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
-    const days = [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ];
-    const dayValue = days.map((day) => (day === value ? 1 : 0)); // Set selected day to 1, rest to 0
+    console.log(e.target.name);
+    console.log(e.target.value);
+    let updatedValue: string | number | number[] = value; // Default to value directly
+    if (name === "day") {
+      const days = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ];
+      const selectedIndex = days.indexOf(value);
+      updatedValue = Array(7).fill(0); // Initialize with all zeros
+      if (selectedIndex !== -1) {
+        updatedValue[selectedIndex] = 1; // Set the selected day to 1
+      }
+    } else if (name === "department") {
+      updatedValue = value === "Brickwork" ? [1, 0] : [0, 1]; // Set array based on selected department
+    }
     setFormData({
       ...formData,
-      [name]: dayValue,
+      [name]: updatedValue,
     });
   };
+
   const handleChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -63,37 +97,40 @@ export function DesignForm() {
   };
   console.log(formData);
   const navigate = useNavigate();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(formData);
-    navigate("/project-1/speedometer");
-  };
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  
+//for frontend
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
-
-  //   try {
-  //     const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     if (!res.ok) {
-  //       throw new Error("Unauthorized");
-  //     }
-
-  //     const responseData = await res.json();
-  //     navigate("/project-1/speedometer", { state: { data: responseData } });
-  //     console.log("success");
-  //   } catch (error) {
-  //     console.error(error);
-  //     // Handle error properly, such as showing a message to the user
-  //   }
+  //   console.log(formData);
+  //   navigate("/project-1/speedometer");
   // };
+
+  //Use this handleSubmit if you have backend file
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Unauthorized");
+      }
+
+      const responseData = await res.json();
+      navigate("/project-1/speedometer", { state: { data: responseData } });
+      console.log("success");
+    } catch (error) {
+      console.error(error);
+      // Handle error properly, such as showing a message to the user
+    }
+  };
 
   return (
     <motion.div
@@ -165,7 +202,7 @@ export function DesignForm() {
               id="department"
               name="department"
               className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               value={formData.department}
             >
               <option value="Brickwork">Brickwork</option>
