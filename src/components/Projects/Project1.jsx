@@ -14,6 +14,7 @@ export default function Project1() {
       <div className="min-h-[60vh] flex justify-center items-center w-[50%]">
         <div className="w-full h-full mt-[-100px] overflow-hidden bg-white  ml-3 mt-1 flex justify-start items-start rounded-lg">
           <ImageTransition />
+          
         </div>
       </div>
       <div className=" flex items-center justify-center w-[50%] h-full ">

@@ -3,11 +3,28 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "../../utils/cn";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   IconBrandGithub,
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
+
+//Text variants Framer Motion
+const textVariants = {
+  initial: {
+    y: 40,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 1,
+    },
+  },
+};
 
 export function DesignForm() {
   const [formData, setFormData] = useState({
@@ -22,9 +39,19 @@ export function DesignForm() {
   });
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
+    const days = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    const dayValue = days.map((day) => (day === value ? 1 : 0)); // Set selected day to 1, rest to 0
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: dayValue,
     });
   };
   const handleChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +96,12 @@ export function DesignForm() {
   // };
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-none mb-[90px] md:rounded-2xl p-2  md:p-5 shadow-input bg-white dark:bg-black">
+    <motion.div
+      className=" max-w-md w-full mx-auto rounded-none mb-[90px] md:rounded-2xl p-2  md:p-5 shadow-input bg-white dark:bg-black"
+      initial="initial"
+      animate="animate"
+      variants={textVariants} // Apply variants to motion.div
+    >
       <form className="my-3" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <div className="mb-4">
@@ -200,7 +232,7 @@ export function DesignForm() {
           <BottomGradient />
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 

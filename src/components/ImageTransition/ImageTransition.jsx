@@ -25,8 +25,22 @@ const ImageTransition = () => {
     return () => clearInterval(interval);
   }, []); // Run only once when the component mounts
 
+  const textVariants = {
+    initial: { x: 30 },
+    animate: { x: 0 },
+  };
+
   return (
     <div className="relative w-full h-[80vh] flex items-start justify-center overflow-hidden">
+      <motion.div
+        className="absolute top-0 left-0 z-10"
+        variants={textVariants}
+        initial="initial"
+        animate="animate"
+        transition={{ duration: 1 }}
+      >
+        <h1 className="text-4xl font-bold">Labor Productivity Prediction</h1>
+      </motion.div>
       {images.map((image, index) => (
         <motion.img
           key={index}
