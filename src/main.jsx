@@ -4,8 +4,8 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./components/Home/Home";
-import Project1 from "./components/Projects/Project1";
-import Project2 from "./components/Projects/Project2";
+import Project1 from "./components/Projects/Project1/Project1";
+import Project2 from "./components/Projects/Project2/Project2";
 import Faq from "./components/FAQ/Faq";
 import Speedometer from "./components/Input/Speedometer";
 const router = createBrowserRouter([
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
         path: "/project-1/speedometer",
         element: <Speedometer />,
       },
+      // {
+      //   path: "/project-2/sentiment-analysis",
+      //   element:  ,
+      // },
     ],
   },
 ]);

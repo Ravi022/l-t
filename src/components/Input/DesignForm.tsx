@@ -29,14 +29,14 @@ const textVariants = {
 export function DesignForm() {
   const [responseData, setResponseData] = useState(null);
   const [sendData, setSendData] = useState({
-    teamNumber: "1",
+    teamNumber: 1,
     day: [1, 0, 0, 0, 0, 0, 0],
     department: [1, 0],
-    numberOfWorkers: "0",
-    overtime: "0",
-    incentive: "0",
-    svm: "0",
-    targetedProductivity: "0",
+    numberOfWorkers: 0,
+    overtime: 0,
+    incentive: 0,
+    svm: 0,
+    targetedProductivity: 0,
   });
   const [formData, setFormData] = useState({
     teamNumber: "1",
@@ -83,17 +83,27 @@ export function DesignForm() {
 
   const handleChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
+    // Convert targetedProductivity to float, others to integer
+    const updatedValue =
+      name === "targetedProductivity" ? parseFloat(value) : parseInt(value, 10);
+
+    // Check if parsed value is a valid number, if not, set to 0
+    const sanitizedValue = isNaN(updatedValue) ? 0 : updatedValue;
+
+    // Update both formData and sendData states with the parsed value
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: sanitizedValue.toString(), // Convert back to string for formData
     });
     setSendData({
       ...sendData,
-      [name]: value,
+      [name]: sanitizedValue,
     });
   };
+
   // console.log(formData)
-  // console.log(sendData)
+  // console.log(sendData);
   const navigate = useNavigate();
 
   //for frontend
@@ -106,7 +116,7 @@ export function DesignForm() {
   // Use this handleSubmit if you have backend file
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    // console.log(sendData);
     try {
       const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
         method: "POST",
@@ -114,15 +124,15 @@ export function DesignForm() {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify(formData),
+        body: JSON.stringify(sendData),
       });
-      // console.log(res.body)
+      console.log(res.body);
       if (!res.ok) {
         throw new Error("Unauthorized");
       }
 
       const responseData = await res.json();
-      console.log({responseData})
+      console.log({ responseData });
       navigate("/project-1/speedometer", { state: { data: responseData } });
       console.log("success");
     } catch (error) {

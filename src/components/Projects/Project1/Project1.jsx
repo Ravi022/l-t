@@ -1,6 +1,6 @@
 import React from "react";
-import { DesignForm } from "../Input/DesignForm";
-import ImageTransition from "../ImageTransition/ImageTransition";
+import { DesignForm } from "../../Input/DesignForm";
+import ImageTransition from "../../ImageTransition/ImageTransition";
 
 export default function Project1() {
   return (
