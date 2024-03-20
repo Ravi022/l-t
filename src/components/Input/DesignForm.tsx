@@ -35,7 +35,7 @@ export function DesignForm() {
     no_of_workers: 0,
     over_time: 0,
     incentive: 0,
-    svm: 0,
+    smv: 0,
     quarter: 0,
     targeted_productivity: 0,
   });
@@ -46,7 +46,7 @@ export function DesignForm() {
     no_of_workers: "0",
     overtime: "0",
     incentive: "0",
-    svm: "0",
+    smv: "0",
     quarter: 0,
     targetedProductivity: "0",
   });
@@ -257,11 +257,11 @@ export function DesignForm() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="svm">SVM</Label>
+          <Label htmlFor="smv">SMV</Label>
           <Input
-            id="svm"
-            name="svm"
-            placeholder="SVM"
+            id="smv"
+            name="smv"
+            placeholder="SMV"
             type="number"
             onChange={(e) => handleChange1(e)}
           />
