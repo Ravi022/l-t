@@ -7,7 +7,7 @@ import Bar from "./Bar/Bar.jsx";
 import { transition } from "d3-transition";
 
 class MyChart extends Component {
-//Framer motion text variants
+  //Framer motion text variants
   constructor(props) {
     super(props);
     this.state = {

@@ -27,42 +27,31 @@ const textVariants = {
 };
 
 export function DesignForm() {
-  const [formData, setFormData] = useState({
-    teamNumber: "",
-    day: "",
-    department: "",
+  const [responseData, setResponseData] = useState(null);
+  const [sendData, setSendData] = useState({
+    teamNumber: "1",
+    day: [1, 0, 0, 0, 0, 0, 0],
+    department: [1, 0],
     numberOfWorkers: "0",
     overtime: "0",
     incentive: "0",
     svm: "0",
     targetedProductivity: "0",
   });
-  // const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const { name, value } = e.target;
-  //   let updatedValue: string | number | number[] = value; // Default to value directly
-  //   if (name === "day") {
-  //     const days = [
-  //       "Monday",
-  //       "Tuesday",
-  //       "Wednesday",
-  //       "Thursday",
-  //       "Friday",
-  //       "Saturday",
-  //       "Sunday",
-  //     ];
-  //     updatedValue = days.map((day) => (day === value ? 1 : 0));
-  //   } else if (name === "department") {
-  //     updatedValue = value === "Brickwork" ? 0 : 1;
-  //   }
-  //   setFormData({
-  //     ...formData,
-  //     [name]: updatedValue,
-  //   });
-  // };
+  const [formData, setFormData] = useState({
+    teamNumber: "1",
+    day: "Monday",
+    department: "Brickwork",
+    numberOfWorkers: "0",
+    overtime: "0",
+    incentive: "0",
+    svm: "0",
+    targetedProductivity: "0",
+  });
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
-    console.log(e.target.name);
-    console.log(e.target.value);
+    // console.log(e.target.name);
+    // console.log(e.target.value);
     let updatedValue: string | number | number[] = value; // Default to value directly
     if (name === "day") {
       const days = [
@@ -84,6 +73,10 @@ export function DesignForm() {
     }
     setFormData({
       ...formData,
+      [name]: value,
+    });
+    setSendData({
+      ...sendData,
       [name]: updatedValue,
     });
   };
@@ -94,18 +87,23 @@ export function DesignForm() {
       ...formData,
       [name]: value,
     });
+    setSendData({
+      ...sendData,
+      [name]: value,
+    });
   };
-  console.log(formData);
+  // console.log(formData)
+  // console.log(sendData)
   const navigate = useNavigate();
-  
-//for frontend
+
+  //for frontend
   // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
-  //   console.log(formData);
+  //   console.log(sendData);
   //   navigate("/project-1/speedometer");
   // };
 
-  //Use this handleSubmit if you have backend file
+  // Use this handleSubmit if you have backend file
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -118,12 +116,13 @@ export function DesignForm() {
 
         body: JSON.stringify(formData),
       });
-
+      // console.log(res.body)
       if (!res.ok) {
         throw new Error("Unauthorized");
       }
 
       const responseData = await res.json();
+      console.log({responseData})
       navigate("/project-1/speedometer", { state: { data: responseData } });
       console.log("success");
     } catch (error) {
@@ -257,6 +256,9 @@ export function DesignForm() {
             name="targetedProductivity"
             placeholder="Targeted Productivity"
             type="number"
+            step="0.01" // Set the step to 0.01 for finer control
+            min="0" // Set the minimum value to 0
+            max="1" // Set the maximum value to 1
             onChange={(e) => handleChange1(e)}
           />
         </LabelInputContainer>
