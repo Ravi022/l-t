@@ -36,7 +36,7 @@ export function DesignForm() {
     overtime: 0,
     incentive: 0,
     svm: 0,
-    quater: 0,
+    quarter: 0,
     targetedProductivity: 0,
   });
   const [formData, setFormData] = useState({
@@ -47,7 +47,7 @@ export function DesignForm() {
     overtime: "0",
     incentive: "0",
     svm: "0",
-    quater: 0,
+    quarter: 0,
     targetedProductivity: "0",
   });
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -214,8 +214,8 @@ export function DesignForm() {
             </select>
           </div>
         </div>
-        <div>
-          <LabelInputContainer className="mb-4">
+        <div className="flex justify-end mb-4">
+          <LabelInputContainer className="mr-2">
             <Label htmlFor="nunberofworkers">Number of Workers</Label>
             <Input
               id="nunberofworkers"
@@ -225,12 +225,12 @@ export function DesignForm() {
               onChange={(e) => handleChange1(e)}
             />
           </LabelInputContainer>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="Quater">Quater</Label>
+          <LabelInputContainer className="mr-2">
+            <Label htmlFor="quarter">Quater</Label>
             <Input
-              id="Quater"
-              name="Quater"
-              placeholder="Quater"
+              id="quarter"
+              name="quarter"
+              placeholder="quater"
               type="number"
               onChange={(e) => handleChange1(e)}
             />
