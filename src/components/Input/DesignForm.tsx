@@ -32,18 +32,18 @@ export function DesignForm() {
     teamNumber: 1,
     day: [1, 0, 0, 0, 0, 0, 0],
     department: [1, 0],
-    numberOfWorkers: 0,
-    overtime: 0,
+    no_of_workers: 0,
+    over_time: 0,
     incentive: 0,
     svm: 0,
     quarter: 0,
-    targetedProductivity: 0,
+    targeted_productivity: 0,
   });
   const [formData, setFormData] = useState({
     teamNumber: "1",
     day: "Monday",
     department: "Brickwork",
-    numberOfWorkers: "0",
+    no_of_workers: "0",
     overtime: "0",
     incentive: "0",
     svm: "0",
@@ -216,10 +216,10 @@ export function DesignForm() {
         </div>
         <div className="flex justify-end mb-4">
           <LabelInputContainer className="mr-2">
-            <Label htmlFor="nunberofworkers">Number of Workers</Label>
+            <Label htmlFor="no_of_workers">Number of Workers</Label>
             <Input
-              id="nunberofworkers"
-              name="numberOfWorkers"
+              id="no_of_workers"
+              name="no_of_workers"
               placeholder="Number of Workers"
               type="number"
               onChange={(e) => handleChange1(e)}
@@ -237,10 +237,10 @@ export function DesignForm() {
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="overtime">Overtime</Label>
+          <Label htmlFor="over_time">Overtime</Label>
           <Input
-            id="overtime"
-            name="overtime"
+            id="over_time"
+            name="over_time"
             placeholder="Overtime"
             type="number"
             onChange={(e) => handleChange1(e)}
@@ -267,10 +267,10 @@ export function DesignForm() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="tproductivity">Targeted Productivity</Label>
+          <Label htmlFor="targeted_productivity">Targeted Productivity</Label>
           <Input
-            id="tproductivity"
-            name="targetedProductivity"
+            id="targeted_productivity"
+            name="targeted_productivity"
             placeholder="Targeted Productivity"
             type="number"
             step="0.01" // Set the step to 0.01 for finer control
