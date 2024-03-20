@@ -5,6 +5,7 @@ import XYAxis from "./Axis/XYAxis.jsx";
 import Grid from "./Grid/Grid.jsx";
 import Bar from "./Bar/Bar.jsx";
 import { transition } from "d3-transition";
+// import Loading from "../Loading/Loading.jsx";
 
 class MyChart extends Component {
   //Framer motion text variants

@@ -36,6 +36,7 @@ export function DesignForm() {
     overtime: 0,
     incentive: 0,
     svm: 0,
+    quater: 0,
     targetedProductivity: 0,
   });
   const [formData, setFormData] = useState({
@@ -46,6 +47,7 @@ export function DesignForm() {
     overtime: "0",
     incentive: "0",
     svm: "0",
+    quater: 0,
     targetedProductivity: "0",
   });
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -106,17 +108,10 @@ export function DesignForm() {
   // console.log(sendData);
   const navigate = useNavigate();
 
-  //for frontend
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   console.log(sendData);
-  //   navigate("/project-1/speedometer");
-  // };
-
   // Use this handleSubmit if you have backend file
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(sendData);
+    console.log(sendData);
     try {
       const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
         method: "POST",
@@ -219,16 +214,28 @@ export function DesignForm() {
             </select>
           </div>
         </div>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="nunberofworkers">Number of Workers</Label>
-          <Input
-            id="nunberofworkers"
-            name="numberOfWorkers"
-            placeholder="Number of Workers"
-            type="number"
-            onChange={(e) => handleChange1(e)}
-          />
-        </LabelInputContainer>
+        <div>
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="nunberofworkers">Number of Workers</Label>
+            <Input
+              id="nunberofworkers"
+              name="numberOfWorkers"
+              placeholder="Number of Workers"
+              type="number"
+              onChange={(e) => handleChange1(e)}
+            />
+          </LabelInputContainer>
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="Quater">Quater</Label>
+            <Input
+              id="Quater"
+              name="Quater"
+              placeholder="Quater"
+              type="number"
+              onChange={(e) => handleChange1(e)}
+            />
+          </LabelInputContainer>
+        </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="overtime">Overtime</Label>
           <Input
