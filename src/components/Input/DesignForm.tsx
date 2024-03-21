@@ -230,7 +230,7 @@ export function DesignForm() {
             <Input
               id="quarter"
               name="quarter"
-              placeholder="quater"
+              placeholder="Quater"
               type="number"
               onChange={(e) => handleChange1(e)}
             />

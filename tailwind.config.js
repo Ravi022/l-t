@@ -1,16 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-//   theme: {
-//     extend: {
-//       colors: {
-//         "custom-blue": "#024D87",
-//       },
-//     },
-//   },
-//   plugins: [],
-// };
-
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 const colors = require("tailwindcss/colors");
@@ -18,15 +5,16 @@ const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{ts,tsx,js,jsx}"],
   darkMode: "class",
   theme: {
-    // rest of the code
     extend: {
       colors: {
         "custom-blue": "#024D87",
+        "custom-green": "#15803d",
+        "custom-red": "#b91c1c",
+        "custom-grey": "#374151",
         primary: {
           50: "#eff6ff",
           100: "#dbeafe",
@@ -47,7 +35,6 @@ module.exports = {
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
-          "system-ui",
           "Segoe UI",
           "Roboto",
           "Helvetica Neue",
@@ -64,7 +51,6 @@ module.exports = {
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
-          "system-ui",
           "Segoe UI",
           "Roboto",
           "Helvetica Neue",
@@ -85,7 +71,7 @@ module.exports = {
   plugins: [addVariablesForColors],
 };
 
-function addVariablesForColors({ addBase, theme }: any) {
+function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
