@@ -18,22 +18,22 @@ export default function Navigation() {
           </div>
           <div className="  flex p-3 text-custom-blue">
             <li className="p-3 m-3 font-raleway font-sans">
-              <NavLink to="/" className=" ease-in hover:underline ">
-                Home
+              <NavLink to="/" className=" ease-in ">
+                <p className="hover:underline  "> Home</p>
               </NavLink>
             </li>
             <li className="p-3 m-3 font-raleway font-sans">
-              <NavLink to="/project-1" className="hover:underline ">
-                Project 1
+              <NavLink to="/project-1" className=" hover:underline  ">
+                Productivity Analyzer
               </NavLink>
             </li>
             <li className="p-3 m-3 font-raleway font-sans">
               <NavLink to="/project-2" className="hover:underline ">
-                Project 2
+                Tweets Analyzer
               </NavLink>
             </li>
             <li className="p-3 m-3 font-raleway font-sans ">
-              <NavLink to="/faq" className="hover:underline ">
+              <NavLink to="/faq" className="hover:underline   ">
                 FAQ
               </NavLink>
             </li>

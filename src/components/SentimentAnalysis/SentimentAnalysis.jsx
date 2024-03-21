@@ -26,7 +26,7 @@ export default function SentimentAnalysis() {
 
   return (
     <div className="flex h-screen ">
-      <div className="w-[30%] overflow-y-auto bg-custom-blue mt-0 ring-2 p-3 ">
+      <div className="w-[30%] overflow-y-auto bg-black mt-0 ring-2 p-3 ">
         <div className="flex justify-center  items-center text-white text-2xl font-bold text-white-500 ">
           Positive Tweets
         </div>
@@ -47,7 +47,7 @@ export default function SentimentAnalysis() {
         <Tweet id="1683920951807971329" />
       </div>
       {/* <div className="relative bg-black"></div> */}
-      <div className="w-[70%] filter w-full bg-no-repeat bg-cover bg-[url('https://imgcdn.stablediffusionweb.com/2024/3/21/317e9f60-151d-4910-a8f9-e5d8b6f29912.jpg')] ">
+      <div className="w-[70%] filter w-full bg-no-repeat bg-left-bottom bg-[url('https://smallimg.pngkey.com/png/small/3-38089_twitter-bird-logo-transparent-background-download-black-twitter.png')] ">
         <div className="flex justify-center items-center p-8 text-center text-3xl tracking-wide font-bold ">
           SENTIMENT ANALYSIS
         </div>
