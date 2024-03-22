@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 export default function Navigation() {
   return (
-    <div>
+    <div className="sticky top-0 z-[999] bg-white">
       <nav>
         <ul className="flex h-22 rounded-none border-y-2 border-y-custom-blue">
           <div className=" bg-custom-blue ">
