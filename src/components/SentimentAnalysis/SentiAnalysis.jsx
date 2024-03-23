@@ -55,13 +55,13 @@ export default function SentiAnalysis() {
     {
       label: "NEUTRAL",
       value: data.percNeutral,
-      color: "#1e40af",
+      color: "#0369a1",
       text: " Good Job but I will expect more in future.",
     },
     {
       label: "NEGATIVE",
       value: data.percNegative,
-      color: "#b91c1c",
+      color: "#f43f5e",
       text: " Totally dissatisfied with the service.",
     },
   ];
@@ -114,7 +114,7 @@ export default function SentiAnalysis() {
                   {
                     data: [
                       { id: 0, value: sentiment.value, color: sentiment.color },
-                      { id: 1, value: 100 - sentiment.value, color: "gray" },
+                      { id: 1, value: 100 - sentiment.value, color: "#9ca3af" },
                     ],
                     innerRadius: 70,
                     outerRadius: 85,
@@ -131,7 +131,7 @@ export default function SentiAnalysis() {
               ></PieChart>
 
               <p
-                className={`absolute w-full h-full left-0 top-0 ml-2 mt-2 flex justify-center items-center text-lg font-bold text-center`}
+                className={`absolute w-full h-full left-0 top-0 ml-2 mt-2 flex justify-center items-center text-lg font-sans text-center subpixel-antialiased font-bold`}
               >
                 {sentiment.label} <br />
                 {sentiment.value}%
