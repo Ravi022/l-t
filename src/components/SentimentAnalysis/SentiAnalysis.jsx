@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { FaTwitter } from "react-icons/fa";
-import { Tweet } from "react-tweet";
+// import { Tweet } from "react-tweet";
 import { useLocation } from "react-router-dom";
+import DropDown from "../DropDown/DropDown";
+import Loader from "../Loader/Loader";
 
 export default function SentiAnalysis() {
   const location = useLocation();
   const receivedData = location.state && location.state.data;
   const [data, setData] = useState(null);
+  const [openDropDownId, setOpenDropDownId] = useState(null);
   console.log(receivedData);
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -32,7 +35,11 @@ export default function SentiAnalysis() {
   }, [receivedData]);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return (
+      <div className="w-full h-full justify-center items-center mt-10">
+        <Loader />
+      </div>
+    );
   }
 
   const senti = [
@@ -55,23 +62,37 @@ export default function SentiAnalysis() {
       text: " Totally dissatisfied with the service.",
     },
   ];
+  const handleDropDownToggle = (id) => {
+    setOpenDropDownId((prevId) => (prevId === id ? null : id));
+  };
 
   return (
-    <div className="flex h-[90vh] ">
-      <div className="flex w-[20%] flex-col h-full my-5  relative">
+    <div className="flex h-[90vh] bg-[#F7F9F9]">
+      <div className="flex w-[25%] flex-col h-full my-5  relative">
         <div className="flex flex-col gap-3 h-full px-2 overflow-y-auto">
-          {data.topPositive.map((value, index) => (
-            <div className="" key={index}>
-              <Tweet id={value.id.toString()} />
-              {/* <Tweet id="1770659241042346282" /> */}
-              {/* <h1>{value.id}</h1> */}
-            </div>
-          ))}
+          <DropDown
+            id={1}
+            isOpen={openDropDownId === 1}
+            onToggle={handleDropDownToggle}
+            data={data}
+            emotion={data.topPositive}
+            comment="Positive Tweets"
+          />
+          <DropDown
+            id={2}
+            isOpen={openDropDownId === 2}
+            onToggle={handleDropDownToggle}
+            data={data}
+            emotion={data.topNegative}
+            comment="Negative Tweets"
+          />
+
+          {/* <DropDown key={3} data={data} emotion={data.topNegative} /> */}
         </div>
       </div>
       <div className="w-[60%] relative">
-        <div className="absolute h-full w-full flex items-end justify-center ">
-          <FaTwitter className="text-[50px] text-[#1D9BF0] text-blue-100" />
+        <div className="absolute h-full w-full flex items-center justify-center ">
+          <FaTwitter className="text-[200px] text-[#1D9BF0] text-blue-100" />
         </div>
         <div className=" mt-5 flex flex-col xl:flex-row justify-evenly  ">
           {senti.map((sentiment, index) => (
@@ -83,8 +104,8 @@ export default function SentiAnalysis() {
                       { id: 0, value: sentiment.value, color: sentiment.color },
                       { id: 1, value: 100 - sentiment.value, color: "gray" },
                     ],
-                    innerRadius: 85,
-                    outerRadius: 100,
+                    innerRadius: 70,
+                    outerRadius: 85,
                     paddingAngle: 5,
                     cornerRadius: 5,
                     startAngle: -180,
@@ -107,15 +128,16 @@ export default function SentiAnalysis() {
             </div>
           ))}
         </div>
-      </div>
+      </div>{" "}
       <div className="flex w-[20%] flex-col h-full my-5  relative">
-        <div className="flex flex-col gap-3 h-full px-2 overflow-y-auto">
+        {/* <div className="flex flex-col gap-3 h-full px-2 overflow-y-auto">
           {data.topNegative.map((value, index) => (
             <div className="" key={index}>
               <Tweet id={value.id} />
             </div>
           ))}
-        </div>
+        </div> */}
+        {/* <DropDown data={data} emotion={data.topPositive} /> */}
       </div>
     </div>
     // <div>

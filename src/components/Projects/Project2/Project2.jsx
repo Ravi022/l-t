@@ -33,7 +33,7 @@ export default function Projects2() {
     }
   };
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center bg-black">
       <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}

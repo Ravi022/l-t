@@ -111,7 +111,7 @@ export function DesignForm() {
   // Use this handleSubmit if you have backend file
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     console.log(sendData);
     try {
       const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
@@ -224,7 +224,7 @@ export function DesignForm() {
               placeholder="Number of Workers"
               type="number"
               onChange={(e) => handleChange1(e)}
-              
+              required
             />
           </LabelInputContainer>
           <LabelInputContainer className="mr-2">
@@ -235,6 +235,7 @@ export function DesignForm() {
               placeholder="Quater"
               type="number"
               onChange={(e) => handleChange1(e)}
+              required
             />
           </LabelInputContainer>
         </div>
@@ -246,6 +247,7 @@ export function DesignForm() {
             placeholder="Overtime"
             type="number"
             onChange={(e) => handleChange1(e)}
+            required
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -256,6 +258,7 @@ export function DesignForm() {
             placeholder="Incentive"
             type="number"
             onChange={(e) => handleChange1(e)}
+            required
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -266,6 +269,7 @@ export function DesignForm() {
             placeholder="SMV"
             type="number"
             onChange={(e) => handleChange1(e)}
+            required
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -279,6 +283,7 @@ export function DesignForm() {
             min="0" // Set the minimum value to 0
             max="1" // Set the maximum value to 1
             onChange={(e) => handleChange1(e)}
+            required
           />
         </LabelInputContainer>
 
