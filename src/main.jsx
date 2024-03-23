@@ -9,6 +9,7 @@ import Project2 from "./components/Projects/Project2/Project2";
 import Faq from "./components/FAQ/Faq";
 import Speedometer from "./components/Input/Speedometer";
 import SentiAnalysis from "./components/SentimentAnalysis/SentiAnalysis";
+import PageNotFound from "./components/Page-404/PageNotFound";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/project-2/sentiment-analysis",
         element: <SentiAnalysis />,
+      },
+      {
+        path: "*",
+        element: <PageNotFound />,
       },
     ],
   },
