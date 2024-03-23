@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import LinkedInLogo from "../../assets/Images/linkedin2.png";
@@ -7,7 +8,7 @@ export default function Navigation() {
     <div className="relative sticky top-0 z-[999]   bg-[#F7F9F9]">
       <nav>
         <div>
-          <ul className="flex h-22 rounded-none border-y-2 border-y-custom-blue">
+          <ul className="flex justify-between items-center h-22 rounded-none border-y-2 border-y-custom-blue">
             <div className=" bg-custom-blue ">
               <li className="flex items-center p-2 m-3 font-raleway font-sans">
                 <Link to="/" className="flex items-center">
@@ -19,39 +20,38 @@ export default function Navigation() {
                 </Link>
               </li>
             </div>
-            <div className="flex p-3 text-custom-blue">
-              <li className="p-3 m-3 font-raleway font-sans">
-                <NavLink to="/" className=" ease-in ">
-                  <p className="hover:underline  "> Home</p>
+            <div className=" text-xl flex gap-8 items-center p-3 text-custom-blue mr-5">
+              <li className=" relative  hover:text-custom-blue cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-300 before:absolute before:bg-custom-blue before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-300 after:absolute after:bg-custom-blue after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                <NavLink to="/" className="">
+                  <p className=" "> Home</p>
                 </NavLink>
               </li>
-              <li className="p-3 m-3 font-raleway font-sans">
-                <NavLink to="/project-1" className=" hover:underline  ">
-                  Productivity Analyzer
+              <li className=" relative  hover:text-custom-blue cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-300 before:absolute before:bg-custom-blue before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-300 after:absolute after:bg-custom-blue after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                <NavLink to="/project-1" className="">
+                  <p className=" "> Productivity Analyzer</p>
                 </NavLink>
               </li>
-              <li className="p-3 m-3 font-raleway font-sans">
-                <NavLink to="/project-2" className="hover:underline ">
-                  Tweets Analyzer
+              <li className=" relative  hover:text-custom-blue cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-300 before:absolute before:bg-custom-blue before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-300 after:absolute after:bg-custom-blue after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                <NavLink to="/project-2" className="">
+                  <p className=" "> Tweets Analyzer</p>
                 </NavLink>
               </li>
-              <li className="p-3 m-3 font-raleway font-sans ">
-                <NavLink to="/faq" className="hover:underline   ">
-                  FAQ
+              <li className=" relative  hover:text-custom-blue cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-300 before:absolute before:bg-custom-blue before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-300 after:absolute after:bg-custom-blue after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                <NavLink to="/faq" className="">
+                  <p className=" "> FAQ</p>
                 </NavLink>
               </li>
-            </div>
-            <div className="absolute ml-[85%] flex justify-center items-center p-3 mt-4">
-              <li className="flex items-center   font-raleway font-sans">
+
+              {/* <li className="flex items-center   font-raleway font-sans">
                 <Link to="/" className="flex items-center">
-                  <img src={LinkedInLogo} className="mr-3 " alt="Logo" />
+                  <img src={LinkedInLogo} className="" alt="Logo" />
                 </Link>
               </li>
               <li className="flex items-center  font-raleway font-sans">
                 <Link to="/" className="flex items-center">
-                  <img src={SearchBarLogo} className="mr-3 h-7 " alt="Logo" />
+                  <img src={SearchBarLogo} className=" h-7 " alt="Logo" />
                 </Link>
-              </li>
+              </li> */}
             </div>
           </ul>
         </div>
