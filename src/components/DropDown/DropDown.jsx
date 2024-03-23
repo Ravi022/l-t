@@ -33,13 +33,13 @@ const DropDown = ({ id, isOpen, onToggle, emotion, comment }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute w-full top-full z-10 right-0 bg-[#f7f9f9] shadow-md">
-          <div className="py-1">
+        <div className="absolute w-full top-full z-10 right-0 bg-[#f7f9f9] shadow-md ">
+          <div className="py-1 divide-y divide-solid">
             {emotion.map((value, index) => (
               <a
                 key={index}
                 href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-300 ease-in-out"
+                className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-300 transition duration-300 ease-in-out"
                 role="menuitem"
                 tabIndex="-1"
               >

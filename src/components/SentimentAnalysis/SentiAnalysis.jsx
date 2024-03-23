@@ -71,8 +71,8 @@ export default function SentiAnalysis() {
 
   return (
     <div className="flex h-[90vh] bg-[#F7F9F9]">
-      <div className="flex w-[22%] flex-col h-full my-5  relative">
-        <div className="flex flex-col gap-4 h-full px-2 overflow-y-auto">
+      <div className="flex w-[21%] flex-col h-full   relative border">
+        <div className="flex flex-col gap-4 h-full px-2 overflow-y-auto p-4">
           <DropDown
             id={1}
             isOpen={openDropDownId === 1}
@@ -101,13 +101,14 @@ export default function SentiAnalysis() {
           {/* <DropDown key={3} data={data} emotion={data.topNegative} /> */}
         </div>
       </div>
-      <div className="w-[60%] relative">
+      <div className="w-[78%] relative">
         <div className="absolute h-full w-full flex items-center justify-center ">
           <FaTwitter className="text-[200px] text-[#1D9BF0] text-blue-100" />
         </div>
-        <div className=" mt-5 flex flex-col xl:flex-row justify-evenly  ">
+        {/* <div className="absolute h-full w-full flex mx-[200px] items-center">{data.message}</div> */}
+        <div className=" mt-1 flex flex-col xl:flex-row justify-center   ">
           {senti.map((sentiment, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative ">
               <PieChart
                 series={[
                   {
@@ -117,7 +118,7 @@ export default function SentiAnalysis() {
                     ],
                     innerRadius: 70,
                     outerRadius: 85,
-                    paddingAngle: 5,
+                    paddingAngle: 1,
                     cornerRadius: 5,
                     startAngle: -180,
                     endAngle: 180,
@@ -135,24 +136,11 @@ export default function SentiAnalysis() {
                 {sentiment.label} <br />
                 {sentiment.value}%
               </p>
-              <p className="absolute w-full text-center">{sentiment.text}</p>
+              {/* <p className="absolute w-full text-center">{sentiment.text}</p> */}
             </div>
           ))}
         </div>
       </div>{" "}
-      <div className="flex w-[20%] flex-col h-full my-5  relative">
-        {/* <div className="flex flex-col gap-3 h-full px-2 overflow-y-auto">
-          {data.topNegative.map((value, index) => (
-            <div className="" key={index}>
-              <Tweet id={value.id} />
-            </div>
-          ))}
-        </div> */}
-        {/* <DropDown data={data} emotion={data.topPositive} /> */}
-      </div>
     </div>
-    // <div>
-    //   <Tweet id="1770868576313913600" />
-    // </div>
   );
 }

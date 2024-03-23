@@ -52,7 +52,7 @@ export default function Projects2() {
           borderRadius="1.75rem"
           className="bg-custom-blue/60 hover:bg-[#024D87] text-white border-[5px] border-white-500"
         >
-          Click Here
+          Generate
         </Button>
       </LampContainer>
 

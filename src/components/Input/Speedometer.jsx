@@ -11,8 +11,10 @@ export default function Bars() {
   }));
   console.log(data);
   return (
-    <div className="mt-5 flex justify-center ">
-      <MyChart data={data} />
+    <div className="">
+      <div className="flex justify-center ">
+        <MyChart data={data} />
+      </div>
     </div>
   );
 }
