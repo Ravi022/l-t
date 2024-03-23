@@ -28,6 +28,9 @@ export default function SentiAnalysis() {
         topPositive: receivedData.topPositive.map((value, index) => ({
           id: value.tweetId,
         })),
+        topNeutral: receivedData.topPositive.map((value, index) => ({
+          id: value.tweetId,
+        })),
       });
     }, 2000);
 
@@ -36,7 +39,7 @@ export default function SentiAnalysis() {
 
   if (!data) {
     return (
-      <div className="w-full h-full justify-center items-center mt-10">
+      <div className="w-[100%] h-[100%] flex ">
         <Loader />
       </div>
     );
@@ -68,8 +71,8 @@ export default function SentiAnalysis() {
 
   return (
     <div className="flex h-[90vh] bg-[#F7F9F9]">
-      <div className="flex w-[25%] flex-col h-full my-5  relative">
-        <div className="flex flex-col gap-3 h-full px-2 overflow-y-auto">
+      <div className="flex w-[22%] flex-col h-full my-5  relative">
+        <div className="flex flex-col gap-4 h-full px-2 overflow-y-auto">
           <DropDown
             id={1}
             isOpen={openDropDownId === 1}
@@ -81,6 +84,14 @@ export default function SentiAnalysis() {
           <DropDown
             id={2}
             isOpen={openDropDownId === 2}
+            onToggle={handleDropDownToggle}
+            data={data}
+            emotion={data.topNeutral}
+            comment="Neutral Tweets"
+          />
+          <DropDown
+            id={3}
+            isOpen={openDropDownId === 3}
             onToggle={handleDropDownToggle}
             data={data}
             emotion={data.topNegative}
