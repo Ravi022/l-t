@@ -85,6 +85,7 @@ class MyChart extends Component {
                 data,
                 height,
                 t,
+               
               }}
             />
           </g>

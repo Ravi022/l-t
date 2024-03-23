@@ -22,7 +22,8 @@ class Bar extends React.Component {
       .data(data)
       .transition(t)
       .attr("y", (d) => yScale(d.value))
-      .attr("height", (d) => height - yScale(d.value));
+      .attr("height", (d) => height - yScale(d.value))
+      .attr("fill", (d) => d.color);
   }
   init() {
     const { xScale, yScale, data, height } = this.props;
@@ -44,8 +45,8 @@ class Bar extends React.Component {
       .attr("class", "bar")
       .attr("x", (d) => xScale(d.name))
       .attr("y", height)
-      .attr("width", xScale.bandwidth());
-
+      .attr("width", xScale.bandwidth())
+      .attr("fill", (d) => d.color);
     this.barTransition();
   }
   render() {

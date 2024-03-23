@@ -50,6 +50,7 @@ export function DesignForm() {
     quarter: 0,
     targetedProductivity: "0",
   });
+  const additionalData = formData.teamNumber;
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     // console.log(e.target.name);
@@ -112,7 +113,7 @@ export function DesignForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(sendData);
+    // console.log(sendData);
     try {
       const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
         method: "POST",
@@ -122,21 +123,22 @@ export function DesignForm() {
 
         body: JSON.stringify(sendData),
       });
-      console.log(res.body);
+      // console.log(res.body);
       if (!res.ok) {
         throw new Error("Unauthorized");
       }
 
       const responseData = await res.json();
-      console.log({ responseData });
-      navigate("/project-1/speedometer", { state: { data: responseData } });
+      // console.log({ responseData });
+      navigate("/project-1/speedometer", {
+        state: { data: responseData, additionalData: additionalData },
+      });
       console.log("success");
     } catch (error) {
       console.error(error);
       // Handle error properly, such as showing a message to the user
     }
   };
-
   return (
     <motion.div
       className=" max-w-md w-full mx-auto rounded-none mb-[90px] md:rounded-2xl p-2  md:p-5 shadow-input bg-white dark:bg-black"
