@@ -245,10 +245,11 @@ export function DesignForm() {
               id="quarter"
               name="quarter"
               placeholder="Quater"
+              
               type="number"
               step="1" //1 Set the step to 0.01 for finer control
               min="0" // Set the minimum value to 0
-              max="3" // Set the maximum value to 1
+              max="4" // Set the maximum value to 1
               onChange={(e) => handleChange1(e)}
               required
             />
@@ -289,6 +290,7 @@ export function DesignForm() {
             type="number"
             min="2.9" // Set the minimum value to 0
             max="54.56"
+            step="0.1"
             onChange={(e) => handleChange1(e)}
             required
           />
