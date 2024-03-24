@@ -233,6 +233,8 @@ export function DesignForm() {
               name="no_of_workers"
               placeholder="Number of Workers"
               type="number"
+              min="2" // Set the minimum value to 0
+              max="89"
               onChange={(e) => handleChange1(e)}
               required
             />
@@ -244,6 +246,9 @@ export function DesignForm() {
               name="quarter"
               placeholder="Quater"
               type="number"
+              step="1" //1 Set the step to 0.01 for finer control
+              min="0" // Set the minimum value to 0
+              max="3" // Set the maximum value to 1
               onChange={(e) => handleChange1(e)}
               required
             />
@@ -256,6 +261,8 @@ export function DesignForm() {
             name="over_time"
             placeholder="Overtime"
             type="number"
+            min="0" // Set the minimum value to 0
+            max="25920"
             onChange={(e) => handleChange1(e)}
             required
           />
@@ -267,6 +274,8 @@ export function DesignForm() {
             name="incentive"
             placeholder="Incentive"
             type="number"
+            min="" // Set the minimum value to 0
+            max="3600"
             onChange={(e) => handleChange1(e)}
             required
           />
@@ -276,8 +285,10 @@ export function DesignForm() {
           <Input
             id="smv"
             name="smv"
-            placeholder="SMV"
+            placeholder="Standard Minute Value"
             type="number"
+            min="2.9" // Set the minimum value to 0
+            max="54.56"
             onChange={(e) => handleChange1(e)}
             required
           />
