@@ -129,7 +129,7 @@ export function DesignForm() {
       }
 
       const responseData = await res.json();
-      // console.log({ responseData });
+      console.log({ responseData });
       navigate("/project-1/speedometer", {
         state: { data: responseData, additionalData: additionalData },
       });

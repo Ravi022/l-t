@@ -27,12 +27,13 @@ export default function Bars() {
   }));
 
   return (
-    <div className="w-full h-screen  bg-gradient-to-br from-sky-200 to-gray-400 via-transparent h-screen">
+    // bg-gradient-to-br from-sky-200 to-gray-400 via-transparent
+    <div className="w-full h-screen font-mono ">
       <div className=" flex">
         <div className="w-[40%] p-3 border">
+          <h1 className="text-center mb-5">Past 3 Years Data Analysis</h1>
           <div className="">
             <img src={DayTimeImage} className=" mb-2 border" alt="Logo" />
-           
           </div>
           <div className="">
             <img src={OSITimage} className="mb-2 border " alt="Logo" />
@@ -41,8 +42,25 @@ export default function Bars() {
             <img src={QuaterDepartmentImage} className="" alt="Logo" />
           </div>
         </div>
-        <div className="w-[60%] flex justify-center">
+        <div className="w-[60%] flex flex-col gap-2 items-center  ">
+          <h1 className="text-center my-5">Team Productivity Chart</h1>
+
           <MyChart data={data} />
+
+          <div className=" flex gap-5">
+            <div className="flex gap-2 text-sm items-center">
+              <div className="h-[25px] w-[25px] bg-green-500"></div>
+              <p>Maximum Productive</p>
+            </div>
+            <div className="flex gap-2 text-sm items-center">
+              <div className="h-[25px] w-[25px] bg-blue-500"></div>
+              <p>Selected Team</p>
+            </div>
+            <div className="flex gap-2 text-sm items-center">
+              <div className="h-[25px] w-[25px] bg-gray-500"></div>
+              <p>Other Teams</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

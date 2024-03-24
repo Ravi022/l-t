@@ -24,16 +24,19 @@ export default function Navigation() {
                   <p className=" "> Home</p>
                 </NavLink>
               </li>
+              <div className="border-r-[1px] border-gray-500/50 h-[25px]"></div>
               <li className=" relative  hover:text-custom-blue cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-300 before:absolute before:bg-custom-blue before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-300 after:absolute after:bg-custom-blue after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
                 <NavLink to="/project-1" className="">
                   <p className=" "> Productivity Analyzer</p>
                 </NavLink>
               </li>
+              <div className="border-r-[1px] border-gray-500/50 h-[25px]"></div>
               <li className=" relative  hover:text-custom-blue cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-300 before:absolute before:bg-custom-blue before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-300 after:absolute after:bg-custom-blue after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
                 <NavLink to="/project-2" className="">
                   <p className=" "> Tweets Analyzer</p>
                 </NavLink>
               </li>
+              <div className="border-r-[1px] border-gray-500/50 h-[25px]"></div>
               <li className=" relative  hover:text-custom-blue cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-300 before:absolute before:bg-custom-blue before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-300 after:absolute after:bg-custom-blue after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
                 <NavLink to="/faq" className="">
                   <p className=" "> FAQ</p>
