@@ -6,9 +6,11 @@ import ModelViewer from "../models/ModelViewer";
 
 export default function Home() {
   return (
-    <div className="h-[90vh] flex items-center justify-center overflow-x-hidden">
-      <ModelViewer />
-      <img className="max-h-[600px]" src={banner} alt="" />
+    <div className="bg-gradient-to-r from-blue-200 to-gray-300">
+      <div className="h-[90vh] flex items-center justify-center overflow-x-hidden">
+        <ModelViewer />
+        <img className="max-h-[600px]" src={banner} alt="" />
+      </div>
     </div>
   );
 }
