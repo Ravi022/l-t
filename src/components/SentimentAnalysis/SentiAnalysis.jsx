@@ -5,6 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import DropDown from "../DropDown/DropDown";
 import Loader from "../Loader/Loader";
+import PieActiveArc from "./PieActiveArc";
 
 export default function SentiAnalysis() {
   const location = useLocation();
@@ -140,8 +141,19 @@ export default function SentiAnalysis() {
             </div>
           ))}
         </div>
-        <div className="text-current absolute w-full h-full left-0 top-0 ml-2 mt-2 flex justify-center items-center text-lg font-sans text-center subpixel-antialiased font-bold">
-          <p className="">{data.message}</p>
+        <div className="text-current absolute w-full h-full left-0 top-0 ml-2  flex justify-center items-center text-xl font-sans text-center subpixel-antialiased">
+          <p className="font-bold">Enlightenment : </p>
+          <p>{data.message}</p>
+        </div>
+        <div className="absolute flex w-full bottom-3  mb-[30px] justify-center ">
+          <div className=" p-1 w-[45%]">
+            {" "}
+            <PieActiveArc
+              noPositive={(data.noPositive)}
+              noNeutral={data.noNeutral}
+              noNegative={data.noNegative}
+            />
+          </div>
         </div>
       </div>{" "}
     </div>
