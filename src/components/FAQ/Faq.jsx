@@ -26,7 +26,7 @@ export default function Faq() {
                   </svg>
                   How did we go about building the first statistical model?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-gray-500 dark:text-gray-400 ">
                   The statistical model which is an ML model was selectively
                   trained on the past data records of a construction company
                   with departments like brickwork,concreting etc. and the labour
