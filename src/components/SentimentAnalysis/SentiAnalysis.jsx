@@ -140,6 +140,9 @@ export default function SentiAnalysis() {
             </div>
           ))}
         </div>
+        <div className="text-current absolute w-full h-full left-0 top-0 ml-2 mt-2 flex justify-center items-center text-lg font-sans text-center subpixel-antialiased font-bold">
+          <p className="">{data.message}</p>
+        </div>
       </div>{" "}
     </div>
   );
