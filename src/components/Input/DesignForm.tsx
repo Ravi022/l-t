@@ -151,19 +151,23 @@ export function DesignForm() {
           <div className="mb-4">
             <label
               htmlFor="teamNumber"
-              className="block text-sm font-medium text-gray-700"
+              className=" block text-sm font-medium text-gray-700"
             >
               Team Number
             </label>
             <select
               id="teamNumber"
               name="teamNumber"
-              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="cursor-pointer mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               onChange={(e) => handleChange(e)}
               value={formData.teamNumber}
             >
               {[...Array(12).keys()].map((num) => (
-                <option key={num + 1} value={num + 1}>
+                <option
+                  className="cursor-pointer"
+                  key={num + 1}
+                  value={num + 1}
+                >
                   {num + 1}
                 </option>
               ))}
@@ -179,7 +183,7 @@ export function DesignForm() {
             <select
               id="day"
               name="day"
-              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="cursor-pointer mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               onChange={(e) => handleChange(e)}
               value={formData.day}
             >
@@ -192,7 +196,7 @@ export function DesignForm() {
                 "Saturday",
                 "Sunday",
               ].map((day) => (
-                <option key={day} value={day}>
+                <option className="cursor-pointer" key={day} value={day}>
                   {day}
                 </option>
               ))}
@@ -208,12 +212,16 @@ export function DesignForm() {
             <select
               id="department"
               name="department"
-              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="cursor-pointer mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               onChange={(e) => handleChange(e)}
               value={formData.department}
             >
-              <option value="Brickwork">Brickwork</option>
-              <option value="Concreting">Concreting</option>
+              <option className="cursor-pointer" value="Brickwork">
+                Brickwork
+              </option>
+              <option className="cursor-pointer" value="Concreting">
+                Concreting
+              </option>
             </select>
           </div>
         </div>

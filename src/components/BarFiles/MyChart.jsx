@@ -46,7 +46,7 @@ class MyChart extends Component {
       return <div>Loading...</div>; // Render loading message while data is being fetched
     }
 
-    const parentWidth = 700;
+    const parentWidth = 600;
     const margin = {
       top: 10,
       right: 10,
