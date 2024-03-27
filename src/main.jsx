@@ -1,6 +1,6 @@
 import React from "react";
-import "./index.css";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./components/Home/Home";
@@ -10,42 +10,63 @@ import Faq from "./components/FAQ/Faq";
 import Speedometer from "./components/Input/Speedometer";
 import SentiAnalysis from "./components/SentimentAnalysis/SentiAnalysis";
 import PageNotFound from "./components/Page-404/PageNotFound";
+import ErrorPage from "./ErrorPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
+      { path: "/", element: <Home />, errorElement: <ErrorPage /> },
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/project-1",
+        path: "/productivity-analyzer",
         element: <Project1 />,
+        errorElement: <ErrorPage />,
       },
       {
-        path: "/project-2",
+        path: "/tweets-analyzer",
         element: <Project2 />,
+        errorElement: <ErrorPage />,
       },
+      { path: "/faq", element: <Faq />, errorElement: <ErrorPage /> },
       {
-        path: "/faq",
-        element: <Faq />,
-      },
-      {
-        path: "/project-1/speedometer",
+        path: "/productivity-analyzer/teams-productivity",
         element: <Speedometer />,
+        errorElement: <ErrorPage />,
       },
       {
-        path: "/project-2/sentiment-analysis",
+        path: "/tweets-analyzer/sentiment-analysis",
         element: <SentiAnalysis />,
+        errorElement: <ErrorPage />,
       },
-      {
-        path: "*",
-        element: <PageNotFound />,
-      },
+      { path: "*", element: <PageNotFound />, errorElement: <ErrorPage /> },
     ],
   },
+  { path: "/", element: <Home />, errorElement: <ErrorPage /> },
+  {
+    path: "/productivity-analyzer",
+    element: <Project1 />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/tweets-analyzer",
+    element: <tweets-analyzer />,
+    errorElement: <ErrorPage />,
+  },
+  { path: "/faq", element: <Faq />, errorElement: <ErrorPage /> },
+  {
+    path: "/productivity-analyzer/teams-productivity",
+    element: <Speedometer />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/tweets-analyzer/sentiment-analysis",
+    element: <SentiAnalysis />,
+    errorElement: <ErrorPage />,
+  },
+  { path: "*", element: <PageNotFound />, errorElement: <ErrorPage /> },
 ]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />

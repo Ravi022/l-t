@@ -115,7 +115,7 @@ export function DesignForm() {
 
     // console.log(sendData);
     try {
-      const res = await fetch("http://localhost:3000/proj1/pred_Prod", {
+      const res = await fetch("http://3.109.238.228:3000/proj1/pred_Prod", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ export function DesignForm() {
 
       const responseData = await res.json();
       console.log({ responseData });
-      navigate("/project-1/speedometer", {
+      navigate("/productivity-analyzer/teams-productivity", {
         state: { data: responseData, additionalData: additionalData },
       });
       console.log("success");
@@ -245,7 +245,6 @@ export function DesignForm() {
               id="quarter"
               name="quarter"
               placeholder="Quater"
-              
               type="number"
               step="1" //1 Set the step to 0.01 for finer control
               min="0" // Set the minimum value to 0

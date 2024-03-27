@@ -32,15 +32,6 @@ const ImageTransition = () => {
 
   return (
     <div className="relative w-full h-[80vh] flex items-start justify-center overflow-hidden">
-      {/* <motion.div
-        className="absolute top-0 left-0 z-10"
-        variants={textVariants}
-        initial="initial"
-        animate="animate"
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-4xl font-bold text-color-green">Labor Productivity Prediction</h1>
-      </motion.div> */}
       {images.map((image, index) => (
         <motion.img
           key={index}

@@ -52,7 +52,7 @@ export default function ModelViewer() {
     >
       <ambientLight color="gold" intensity={0.5} position={[0, 0, 10]} />
       <directionalLight color="gold" intensity={4.5} position={[20, 200, 10]} />
-      <Model url="src/components/models/Ram-Mandir.gltf" />{" "}
+      <Model url="../../../models/Ram-Mandir.gltf" />{" "}
       {/* Replace with the actual URL */}
     </Canvas>
   );

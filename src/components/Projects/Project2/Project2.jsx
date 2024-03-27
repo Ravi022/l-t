@@ -8,9 +8,9 @@ export default function Projects2() {
   // console.log(navigate);
   const handleClick = async (e) => {
     e.preventDefault();
-
+    // http://13.234.223.126:3000/proj1/pred_Prod
     try {
-      const res = await fetch("http://localhost:3000/proj2", {
+      const res = await fetch("http://3.109.238.228:3000/proj2", {
         method: "POST", // Change to POST method
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export default function Projects2() {
 
       const responseData = await res.json();
       console.log({ responseData });
-      navigate("/project-2/sentiment-analysis", {
+      navigate("/tweets-analyzer/sentiment-analysis", {
         state: { data: responseData },
       });
       console.log("success");
